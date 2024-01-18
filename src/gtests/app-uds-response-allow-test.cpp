@@ -4,6 +4,9 @@
 #include <uds/inc/iso-tp-if.h>
 #include <uds/session/uds-app-manager.h>
 #include <uds/session/uds-app-client.h>
+#include <array>
+#include <cstdint>
+
 
 static uint32_t responseCounter = 0u;
 
@@ -398,5 +401,7 @@ TEST(ResponseUdsAppTest, GeneralTests) {
   set_func_sub_func_suppres(SID_SF, { SIDSF_SF_OK, SIDSF_SF_PARAM_OK }, 2);
   testAppManger.OnIsoEvent(N_Event::Data, N_Result::OK_r, isoContext);
   EXPECT_EQ(responseCounter, no_response_sent());
+
+set_func_sub_func_suppres(SID_SF, { static_cast<uint8_t>(SIDSF_SF_OK), static_cast<uint8_t>(SIDSF_SF_PARAM_OK) }, 2);
 
 }

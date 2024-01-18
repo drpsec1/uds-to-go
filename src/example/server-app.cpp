@@ -7,6 +7,7 @@
 #include "uds-test-server/serv-factory.h"
 #include "uds-test-server/cli-client.h"
 #include "app-helper.h"
+#include <array>
 
 /* ---------------------------------------------------------------------------- */
 std::string cmd;
@@ -132,3 +133,4 @@ int main(int argc, char** argv) {
   th1.join();
   std::cout << "Exit ... " << std::endl;
 }
+
